@@ -102,10 +102,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
       if (isOpen) {
         navRoot.removeAttribute('data-open');
+        document.body.style.overflow = '';
       } else {
         navRoot.setAttribute('data-open', 'true');
         // Ensure dropdowns are closed when mobile menu opens
         closeAllMenus();
+        // Prevent the body from scrolling under the full-screen menu
+        document.body.style.overflow = 'hidden';
       }
     });
 
