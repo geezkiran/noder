@@ -413,7 +413,7 @@ body {
   .btn { width: 100%; padding: 0.9rem 1rem; }
 
   /* Navigation adjustments: set a slightly taller nav to accommodate larger logo */
-  .navigation-menu { padding: 0 0.5rem; height: 3rem; }
+  .navigation-menu { padding: 0 0.5rem; height: 3.5rem; }
   .nav-logo { width: 60px; margin-left: 10px; }
   .nav-inner { padding: 0 0.5rem; max-width: var(--content-width); align-items: center; }
   .nav-logo-link { left: 0.75rem; }
@@ -427,8 +427,8 @@ body {
     right: 0.75rem;
     top: 40%;
     transform: translateY(-50%);
-    height: 2.5rem;
-    width: 2.5rem;
+    height: 3.5rem;
+    width: 3.5rem;
     border-radius: 0.375rem;
     background: var(--background);
     border: none;
