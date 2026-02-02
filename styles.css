@@ -409,10 +409,11 @@ body {
   /* Buttons become full width for easier tapping */
   .btn { width: 100%; padding: 0.9rem 1rem; }
 
-  /* Navigation adjustments */
-  .navigation-menu { padding: 0.5rem 0.5rem; }
-  .nav-logo { width: 48px; }
-  .nav-inner { padding: 0 0.5rem; max-width: var(--content-width); }
+  /* Navigation adjustments: set a slightly taller nav to accommodate larger logo */
+  .navigation-menu { padding: 0 0.5rem; height: 4rem; }
+  .nav-logo { width: 56px; margin-left: 10px; }
+  .nav-inner { padding: 0 0.5rem; max-width: var(--content-width); align-items: center; }
+  .nav-logo-link { left: 0.75rem; }
 
   /* Mobile: show only logo + hamburger; hide the full menu until toggled */
   .nav-toggle {
@@ -420,7 +421,7 @@ body {
     align-items: center;
     justify-content: center;
     position: absolute;
-    right: 1rem;
+    right: 0.75rem;
     top: 50%;
     transform: translateY(-50%);
     height: 2.5rem;
@@ -437,7 +438,7 @@ body {
     display: none; /* hidden by default on mobile */
   }
 
-  /* When nav is open, show the list as a stacked panel */
+  /* When nav is open, show the list as a stacked panel centered under the nav */
   .navigation-menu[data-open="true"] .navigation-menu-list {
     display: flex;
     flex-direction: column;
@@ -447,7 +448,7 @@ body {
     background: var(--popover);
     border-top: 1px solid var(--border);
     padding: 0.75rem 1rem 1rem;
-    margin-top: 0.5rem; /* small gap below nav */
+    margin-top: 0.25rem; /* small gap below nav */
     box-shadow: 0 8px 30px rgba(0,0,0,0.08);
     position: absolute;
     left: 50%;
@@ -474,6 +475,7 @@ body {
 
   /* Sections & cards */
   .section { padding: 2.25rem 0.75rem; }
+  .section-inner { max-width: 90%; margin: 0 auto; }
   .cards-grid { display: block; }
   .card { padding: 0.9rem; }
   .tasks-list { display: block; }
@@ -482,8 +484,8 @@ body {
   .playground { flex-direction: column; align-items: stretch; }
   .playground-input { width: 100%; padding: 0.75rem; }
 
-  /* Give more top padding to account for mobile nav height */
-  body { padding-top: 4.5rem; }
+  /* Set body top padding to match the new nav height so content sits flush below nav */
+  body { padding-top: 3.5rem; }
 } 
 
 /* -------------------------------------------------------------
