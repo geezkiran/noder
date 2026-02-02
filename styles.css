@@ -310,13 +310,13 @@ body {
   display: flex;
   align-items: center;
   justify-content: center;
-  padding: 6rem 1rem 4rem;
+  padding: 4rem 1rem 4rem;
   border-bottom: 1px solid var(--border); /* subtle divider under hero */
 } 
 
 .hero-inner {
   width: 100%;
-  max-width: var(--content-width);
+  max-width: 90%;
   margin: 0 auto; /* center within the page */
   text-align: center;
   display: flex;
@@ -337,7 +337,7 @@ body {
 
 .hero-title {
   font-weight: 600;
-  line-height: 1.04;
+  line-height: 1.1;
   color: var(--foreground);
   font-size: clamp(2rem, 4.5vw, 3.25rem);
   letter-spacing: -0.02em;
@@ -400,10 +400,11 @@ body {
 /* Responsive tweaks */
 @media (max-width: 560px) {
   /* Hero tweaks */
-  .hero { padding: 4.5rem 0.75rem 2.5rem; }
+  .hero { padding: 4.5rem 1rem 2.5rem; }
   .hero-title { font-size: clamp(1.4rem, 7vw, 2rem); }
   .hero-subtitle { font-size: 0.95rem; padding: 0 0.5rem; }
-  .hero-pill { display: none; }
+  /* show a compact pill on mobile */
+  .hero-pill { display: inline-block; font-size: 0.675rem; padding: 0.2rem 0.5rem; border-radius: 999px; }
   .hero-actions { width: 100%; justify-content: stretch; flex-direction: column; align-items: stretch; gap: 0.5rem; margin-top: 0.75rem; }
 
   /* Buttons become full width for easier tapping */
@@ -411,7 +412,7 @@ body {
 
   /* Navigation adjustments: set a slightly taller nav to accommodate larger logo */
   .navigation-menu { padding: 0 0.5rem; height: 4rem; }
-  .nav-logo { width: 56px; margin-left: 10px; }
+  .nav-logo { width: 60px; margin-left: 10px; }
   .nav-inner { padding: 0 0.5rem; max-width: var(--content-width); align-items: center; }
   .nav-logo-link { left: 0.75rem; }
 
@@ -422,12 +423,12 @@ body {
     justify-content: center;
     position: absolute;
     right: 0.75rem;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     height: 2.5rem;
     width: 2.5rem;
     border-radius: 0.375rem;
-    background: transparent;
+    background: black;
     border: none;
     color: var(--foreground);
     cursor: pointer;
@@ -495,7 +496,7 @@ body {
 .section {
   display: flex;
   justify-content: center;
-  padding: 4rem 1rem;
+  padding: 8rem 1rem;
   border-top: 1px solid var(--border); /* subtle separator between sections */
 } 
 
@@ -506,7 +507,7 @@ body {
 
 .section-inner {
   width: 100%;
-  max-width: var(--content-width);
+  max-width: 90%;
   margin: 0 auto; /* center within the page */
 } 
 
