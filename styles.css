@@ -1,0 +1,599 @@
+/* CSS Variables / Design Tokens */
+:root {
+  --background: #ffffff;
+  --foreground: #0a0a0a;
+  --muted: #767676;
+  --muted-foreground: #737373;
+  --popover: #ffffff;
+  --popover-foreground: #0a0a0a;
+  --border: #e5e5e5;
+  --ring: #0a0a0a;
+  --radius: 0.5rem;
+  --content-width: 1000px; /* central content max width */
+} 
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #fafafa;
+    --muted: #262626;
+    --muted-foreground: #a3a3a3;
+    --popover: #0a0a0a;
+    --popover-foreground: #fafafa;
+    --border: #262626;
+    --ring: #d4d4d4;
+    --content-width: 1000px; /* keep content width consistent in dark mode */
+  }
+} 
+
+/* Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  background-color: var(--background);
+  color: var(--foreground);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* stack children vertically */
+  align-items: center;    /* center content horizontally */
+  padding-top: 4rem;
+}
+
+/* Navigation Menu Root */
+.navigation-menu {
+  /* pinned to top */
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
+  padding: 0.5rem 1rem;
+}
+
+/* Logo on the left of the nav */
+.nav-inner {
+  position: relative; /* so absolutely positioned children are relative to this */
+  width: 100%;
+  max-width: var(--content-width); /* clip content to central width */
+  margin: 0 auto; /* center the inner content */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+} 
+
+.nav-logo-link {
+  position: absolute;
+  left: 1rem;
+  display: inline-flex;
+  align-items: center;
+  height: 100%;
+}
+
+.nav-logo {
+  height: auto;
+  width: 65px;
+  display: block;
+}
+
+/* Mobile toggle is hidden by default (shows on small screens only) */
+.nav-toggle {
+  display: none;
+  border: none;
+  background: transparent;
+  color: var(--foreground);
+}
+
+
+/* Navigation Menu List */
+.navigation-menu-list {
+  display: flex;
+  flex: 1 1 auto;
+  list-style: none;
+  align-items: center;
+  /* align links to the right so logo stays on the left */
+  justify-content: flex-end;
+  gap: 0.5rem;
+  width: 100%;
+  padding-right: 1rem;
+}
+
+/* Navigation Menu Item */
+.navigation-menu-item {
+  position: relative;
+}
+
+/* Navigation Menu Trigger */
+.navigation-menu-trigger {
+  display: inline-flex;
+  height: 2.25rem;
+  width: max-content;
+  align-items: center;
+  justify-content: center;
+  gap: 0.25rem;
+  border-radius: 0.6rem;
+  background-color: var(--background);
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--foreground);
+  border: none;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 0.15s ease, box-shadow 0.15s ease;
+  text-decoration: none;
+}
+
+.navigation-menu-trigger:hover {
+  background-color: var(--muted);
+}
+
+.navigation-menu-trigger:focus-visible {
+  outline: 1px solid var(--ring);
+  box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.1);
+}
+
+.navigation-menu-trigger[aria-expanded="true"] {
+  background-color: rgba(245, 245, 245, 0.5);
+}
+
+.navigation-menu-trigger--link {
+  text-decoration: none;
+}
+
+/* Chevron Icon */
+.chevron-icon {
+  position: relative;
+  top: 1px;
+  width: 0.75rem;
+  height: 0.75rem;
+  transition: transform 0.3s ease;
+}
+
+.navigation-menu-trigger[aria-expanded="true"] .chevron-icon {
+  transform: rotate(180deg);
+}
+
+/* Navigation Menu Content (Dropdown) */
+.navigation-menu-content {
+  position: absolute;
+  top: calc(100% + 0.5rem);
+  left: 0;
+  z-index: 50;
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  border-radius: var(--radius);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  border: 1px solid var(--border);
+  padding: 0.5rem;
+  opacity: 0;
+  transform: scale(0.95) translateY(-0.5rem);
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none;
+}
+
+.navigation-menu-content[data-open="true"] {
+  opacity: 1;
+  transform: scale(1) translateY(0);
+  pointer-events: auto;
+}
+
+.navigation-menu-content[hidden] {
+  display: none;
+}
+
+/* Content Lists */
+.content-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.content-list--single {
+  width: 24rem;
+}
+
+.content-list--grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 0.5rem;
+  width: 32rem;
+}
+
+.content-list--icons {
+  width: 12rem;
+}
+
+/* Navigation Menu Link */
+.navigation-menu-link {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.375rem;
+  border-radius: 0.25rem;
+  padding: 0.5rem;
+  font-size: 0.875rem;
+  color: var(--foreground);
+  text-decoration: none;
+  outline: none;
+  transition: background-color 0.15s ease;
+}
+
+.navigation-menu-link:hover,
+.navigation-menu-link:focus {
+  background-color: var(--muted);
+}
+
+.navigation-menu-link:focus-visible {
+  outline: 1px solid var(--ring);
+  box-shadow: 0 0 0 3px rgba(10, 10, 10, 0.1);
+}
+
+.navigation-menu-link--with-icon {
+  flex-direction: row;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.navigation-menu-link--with-icon svg {
+  flex-shrink: 0;
+}
+
+/* List Item Styling */
+.list-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.list-item-title {
+  font-weight: 500;
+  line-height: 1.2;
+}
+
+.list-item-description {
+  color: var(--muted-foreground);
+  font-size: 0.8125rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95) translateY(-0.5rem);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0.95) translateY(-0.5rem);
+  }
+}
+
+.navigation-menu-content.opening {
+  animation: fadeIn 0.2s ease forwards;
+}
+
+.navigation-menu-content.closing {
+  animation: fadeOut 0.15s ease forwards;
+}
+
+/* -------------------------------------------------------------
+   Hero Section
+   Matches existing design tokens and dark mode variables
+   ------------------------------------------------------------- */
+.hero {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 6rem 1rem 4rem;
+  border-bottom: 1px solid var(--border); /* subtle divider under hero */
+} 
+
+.hero-inner {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto; /* center within the page */
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  align-items: center;
+} 
+
+.hero-pill {
+  display: inline-block;
+  padding: 0.35rem 0.75rem;
+  border-radius: 10px;
+  background-color: var(--muted);
+  color: var(--popover-foreground);
+  font-size: 0.75rem;
+  font-weight: 500;
+}
+
+.hero-title {
+  font-weight: 600;
+  line-height: 1.04;
+  color: var(--foreground);
+  font-size: clamp(2rem, 4.5vw, 3.25rem);
+  letter-spacing: -0.02em;
+}
+
+.hero-subtitle {
+  color: var(--muted-foreground);
+  max-width: 60ch;
+  font-size: 1rem;
+  line-height: 1.5;
+}
+
+.hero-actions {
+  display: inline-flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+  flex-wrap: wrap;
+}
+
+/* Button utilities consistent with the nav triggers */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.6rem;
+  padding: 0.5rem 1rem;
+  border-radius: 0.8rem;
+  font-weight: 400;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+  transition: background-color 0.15s ease, transform 0.12s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
+  background-color: var(--foreground);
+  color: #0a0a0a;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.08);
+}
+
+.btn-primary:hover {
+  opacity: 0.95;
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--foreground);
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--muted);
+}
+
+/* Responsive tweaks */
+@media (max-width: 560px) {
+  /* Hero tweaks */
+  .hero { padding: 4.5rem 0.75rem 2.5rem; }
+  .hero-title { font-size: clamp(1.4rem, 7vw, 2rem); }
+  .hero-subtitle { font-size: 0.95rem; padding: 0 0.5rem; }
+  .hero-pill { display: none; }
+  .hero-actions { width: 100%; justify-content: stretch; flex-direction: column; align-items: stretch; gap: 0.5rem; margin-top: 0.75rem; }
+
+  /* Buttons become full width for easier tapping */
+  .btn { width: 100%; padding: 0.9rem 1rem; }
+
+  /* Navigation adjustments */
+  .navigation-menu { padding: 0.5rem 0.5rem; }
+  .nav-logo { width: 48px; }
+  .nav-inner { padding: 0 0.5rem; max-width: var(--content-width); }
+
+  /* Mobile: show only logo + hamburger; hide the full menu until toggled */
+  .nav-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 1rem;
+    top: 50%;
+    transform: translateY(-50%);
+    height: 2.5rem;
+    width: 2.5rem;
+    border-radius: 0.375rem;
+    background: transparent;
+    border: none;
+    color: var(--foreground);
+    cursor: pointer;
+    z-index: 1002;
+  }
+
+  .navigation-menu-list {
+    display: none; /* hidden by default on mobile */
+  }
+
+  /* When nav is open, show the list as a stacked panel */
+  .navigation-menu[data-open="true"] .navigation-menu-list {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    width: var(--content-width);
+    max-width: calc(100% - 2rem);
+    background: var(--popover);
+    border-top: 1px solid var(--border);
+    padding: 0.75rem 1rem 1rem;
+    margin-top: 0.5rem; /* small gap below nav */
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 100%;
+    z-index: 1001;
+  }
+
+  .navigation-menu[data-open="true"] .navigation-menu-item {
+    width: 100%;
+  }
+
+  .navigation-menu[data-open="true"] .navigation-menu-trigger,
+  .navigation-menu[data-open="true"] .navigation-menu-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.6rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 0.375rem;
+  }
+
+  .navigation-menu-trigger { padding: 0.45rem 0.75rem; font-size: 0.9rem; height: 2.5rem; }
+
+  /* Sections & cards */
+  .section { padding: 2.25rem 0.75rem; }
+  .cards-grid { display: block; }
+  .card { padding: 0.9rem; }
+  .tasks-list { display: block; }
+
+  /* Playground input stacks */
+  .playground { flex-direction: column; align-items: stretch; }
+  .playground-input { width: 100%; padding: 0.75rem; }
+
+  /* Give more top padding to account for mobile nav height */
+  body { padding-top: 4.5rem; }
+} 
+
+/* -------------------------------------------------------------
+   Sections: Examples, Dashboard, Tasks, Playground
+   Consistent with design tokens and responsiveness
+   ------------------------------------------------------------- */
+.section {
+  display: flex;
+  justify-content: center;
+  padding: 4rem 1rem;
+  border-top: 1px solid var(--border); /* subtle separator between sections */
+} 
+
+/* Avoid double borders when a .section directly follows the .hero */
+.hero + .section {
+  border-top: none;
+} 
+
+.section-inner {
+  width: 100%;
+  max-width: var(--content-width);
+  margin: 0 auto; /* center within the page */
+} 
+
+/* Add a bottom border to the last section so the page ends with a divider */
+.section:last-of-type {
+  border-bottom: 1px solid var(--border);
+}
+
+.section-title {
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--foreground);
+}
+
+.section-subtitle {
+  color: var(--muted-foreground);
+  margin-top: 0.25rem;
+  margin-bottom: 1rem;
+}
+
+/* Cards grid */
+.cards-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.card {
+  background-color: var(--popover);
+  color: var(--popover-foreground);
+  border: 1px solid var(--border);
+  padding: 1rem;
+  border-radius: 0.5rem;
+  box-shadow: 0 6px 12px rgba(0,0,0,0.04);
+}
+
+.card-title {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.card-text {
+  color: var(--muted-foreground);
+  font-size: 0.95rem;
+}
+
+/* Tasks list */
+.tasks-list {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.task {
+  flex: 1 1 220px;
+}
+
+/* Playground */
+.playground {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+  margin-top: 0.5rem;
+}
+
+.playground-input {
+  flex: 1;
+  padding: 0.6rem 0.75rem;
+  border-radius: 0.375rem;
+  border: 1px solid var(--border);
+  background: transparent;
+  color: var(--popover-foreground);
+  outline: none;
+}
+
+.playground-input::placeholder {
+  color: var(--muted-foreground);
+}
+
+/* Responsive adjustments */
+@media (max-width: 900px) {
+  .cards-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+@media (max-width: 560px) {
+  .cards-grid { display: block; }
+  .cards-grid .card { margin-bottom: 0.75rem; }
+  .tasks-list { display: block; }
+  .task { width: 100%; margin-bottom: 0.75rem; }
+  .playground { flex-direction: column; align-items: stretch; }
+  .playground-input, .btn { width: 100%; }
+}

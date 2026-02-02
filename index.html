@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Noder Home</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+</head>
+<body>
+    
+  <nav class="navigation-menu" role="navigation">
+    <div class="nav-inner">
+      <a class="nav-logo-link" href="index.html" aria-label="Home">
+        <img src="Assets/noder.png" alt="Noder, a social learning platform- Logo" class="nav-logo">
+      </a>
+
+      <!-- Mobile menu toggle (visible on small screens) -->
+      <button class="nav-toggle" aria-label="Open menu" aria-expanded="false" aria-controls="navigation-menu-list">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M3 12h18M3 6h18M3 18h18" />
+        </svg>
+      </button>
+
+      <ul id="navigation-menu-list" class="navigation-menu-list">
+        <!-- Resources -->
+        <li class="navigation-menu-item">
+            <button class="navigation-menu-trigger" aria-expanded="false" aria-haspopup="true">
+            Resources
+            <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="m6 9 6 6 6-6"/>
+            </svg>
+            </button>
+            <div class="navigation-menu-content" hidden>
+            <ul class="content-list content-list--single">
+                <li>
+                <a href="/docs" class="navigation-menu-link">
+                    <div class="list-item">
+                    <span class="list-item-title">Introduction</span>
+                    <span class="list-item-description">Re-usable components built with Tailwind CSS.</span>
+                    </div>
+                </a>
+                </li>
+                <li>
+                <a href="/docs/installation" class="navigation-menu-link">
+                    <div class="list-item">
+                    <span class="list-item-title">Installation</span>
+                    <span class="list-item-description">How to install dependencies and structure your app.</span>
+                    </div>
+                </a>
+                </li>
+                <li>
+                <a href="/docs/primitives/typography" class="navigation-menu-link">
+                    <div class="list-item">
+                    <span class="list-item-title">Typography</span>
+                    <span class="list-item-description">Styles for headings, paragraphs, lists...etc</span>
+                    </div>
+                </a>
+                </li>
+            </ul>
+            </div>
+        </li>
+
+      <!-- Components -->
+      <li class="navigation-menu-item">
+        <button class="navigation-menu-trigger" aria-expanded="false" aria-haspopup="true">
+          Components
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="navigation-menu-content" hidden>
+          <ul class="content-list content-list--grid">
+            <li>
+              <a href="/docs/primitives/alert-dialog" class="navigation-menu-link">
+                <div class="list-item">
+                  <span class="list-item-title">Alert Dialog</span>
+                  <span class="list-item-description">A modal dialog that interrupts the user with important content.</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/primitives/hover-card" class="navigation-menu-link">
+                <div class="list-item">
+                  <span class="list-item-title">Hover Card</span>
+                  <span class="list-item-description">For sighted users to preview content behind a link.</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/primitives/progress" class="navigation-menu-link">
+                <div class="list-item">
+                  <span class="list-item-title">Progress</span>
+                  <span class="list-item-description">Displays completion progress of a task.</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/primitives/scroll-area" class="navigation-menu-link">
+                <div class="list-item">
+                  <span class="list-item-title">Scroll-area</span>
+                  <span class="list-item-description">Visually or semantically separates content.</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/primitives/tabs" class="navigation-menu-link">
+                <div class="list-item">
+                  <span class="list-item-title">Tabs</span>
+                  <span class="list-item-description">Layered sections displayed one at a time.</span>
+                </div>
+              </a>
+            </li>
+            <li>
+              <a href="/docs/primitives/tooltip" class="navigation-menu-link">
+                <div class="list-item">
+                  <span class="list-item-title">Tooltip</span>
+                  <span class="list-item-description">A popup that displays information on hover or focus.</span>
+                </div>
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- With Icon -->
+      <li class="navigation-menu-item">
+        <button class="navigation-menu-trigger" aria-expanded="false" aria-haspopup="true">
+          With Icon
+          <svg class="chevron-icon" xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="m6 9 6 6 6-6"/>
+          </svg>
+        </button>
+        <div class="navigation-menu-content" hidden>
+          <ul class="content-list content-list--icons">
+            <li>
+              <a href="#" class="navigation-menu-link navigation-menu-link--with-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" x2="12" y1="8" y2="12"/>
+                  <line x1="12" x2="12.01" y1="16" y2="16"/>
+                </svg>
+                Backlog
+              </a>
+            </li>
+            <li>
+              <a href="#" class="navigation-menu-link navigation-menu-link--with-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" x2="12" y1="8" y2="12"/>
+                  <line x1="12" x2="12.01" y1="16" y2="16"/>
+                </svg>
+                To Do
+              </a>
+            </li>
+            <li>
+              <a href="#" class="navigation-menu-link navigation-menu-link--with-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <circle cx="12" cy="12" r="10"/>
+                  <line x1="12" x2="12" y1="8" y2="12"/>
+                  <line x1="12" x2="12.01" y1="16" y2="16"/>
+                </svg>
+                Done
+              </a>
+            </li>
+          </ul>
+        </div>
+      </li>
+
+      <!-- Documentation (simple link) -->
+      <li class="navigation-menu-item">
+        <a href="/docs" class="navigation-menu-trigger navigation-menu-trigger--link">
+          Documentation
+        </a>
+      </li>
+      </ul>
+    </div>
+  </nav>
+
+  <main class="hero" role="main">
+    <div class="hero-inner">
+      <span class="hero-pill">New</span>
+      <h1 class="hero-title">The Future of Social Learning</h1>
+      <p class="hero-subtitle">A set of beautifully designed components that you can customize, extend, and build on. Start here then make it your own. Open Source. Open Code.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary">Get Started</a>
+        <a href="#" class="btn btn-secondary">View Components</a>
+      </div>
+    </div>
+  </main>
+
+  <section id="examples" class="section" aria-labelledby="examples-title">
+    <div class="section-inner">
+      <h2 id="examples-title" class="section-title">Examples</h2>
+      <p class="section-subtitle">Small example layouts and UI patterns to get started fast.</p>
+      <div class="cards-grid">
+        <article class="card">
+          <h3 class="card-title">Payment Method</h3>
+          <p class="card-text">All transactions are secure and encrypted.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Team Members</h3>
+          <p class="card-text">Invite your team to collaborate on this project.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Appearance Settings</h3>
+          <p class="card-text">Select the compute environment for your cluster.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="dashboard" class="section" aria-labelledby="dashboard-title">
+    <div class="section-inner">
+      <h2 id="dashboard-title" class="section-title">Dashboard</h2>
+      <p class="section-subtitle">At-a-glance stats and quick actions to keep moving.</p>
+      <div class="cards-grid">
+        <article class="card">
+          <h3 class="card-title">Syncing</h3>
+          <p class="card-text">Status: Syncing data with your account.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Tasks</h3>
+          <p class="card-text">You have 3 tasks pending.</p>
+        </article>
+        <article class="card">
+          <h3 class="card-title">Auth</h3>
+          <p class="card-text">Two-factor authentication is enabled.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section id="tasks" class="section" aria-labelledby="tasks-title">
+    <div class="section-inner">
+      <h2 id="tasks-title" class="section-title">Tasks</h2>
+      <p class="section-subtitle">A compact list of things to keep your team productive.</p>
+      <div class="tasks-list">
+        <div class="task card">
+          <h4 class="card-title">Design review</h4>
+          <p class="card-text">Review navbar and hero styles.</p>
+        </div>
+        <div class="task card">
+          <h4 class="card-title">Write docs</h4>
+          <p class="card-text">Add usage examples for components.</p>
+        </div>
+        <div class="task card">
+          <h4 class="card-title">Release</h4>
+          <p class="card-text">Prepare changelog and release notes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="playground" class="section" aria-labelledby="playground-title">
+    <div class="section-inner">
+      <h2 id="playground-title" class="section-title">Playground</h2>
+      <p class="section-subtitle">Try things out — small inputs and actions for quick experiments.</p>
+      <div class="playground">
+        <input class="playground-input" type="text" placeholder="https://" aria-label="Playground input">
+        <button class="btn btn-primary">Try</button>
+      </div>
+    </div>
+  </section>
+
+  <script src="script.js"></script>
+</body>
+</html>
